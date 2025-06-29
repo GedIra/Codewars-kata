@@ -1,0 +1,1 @@
+century = year => year%100 ? parseInt(year/100) + 1:parseInt(year/100)
