@@ -1,14 +1,16 @@
-basicOp = (operation, value1, value2) =>{
-    switch (operation) {
-        case '+':
-            return value1 + value2
-        case '-':
-            return value1 - value2
-        case '*':
-            return value1 * value2
-        case "/" : 
-            return value1 / value2
-    }
-}
+// basicOp = (operation, value1, value2) =>(
+//     operation === '+'? value1+value2:
+//     operation === '-'? value1-value2:
+//     operation === '*'? value1*value2:
+//     operation === '/'? value1/value2:undefined
+// )
 
-console.log(basicOp('+', 5, 6))
+//You can also use switch case 
+
+basicOp = (operation, value1, value2) => ({
+    '+': value1+value2, '-': value1 - value2,
+    '*': value1*value2, '/': value1/value2
+    }[operation])
+
+
+console.log(basicOp('*', 5, 6))
