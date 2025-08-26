@@ -1,12 +1,17 @@
-function rot13(message){
-  const l_alphas = 'abcdefghijklmnopqrstuvwxyz'
-  const U_alphas = l_alphas.toUpperCase()
-  return message.split('').map(el => {
+/**
+ * Link: https://www.codewars.com/kata/530e15517bc88ac656000716
+ */
 
-    const index = Alphas.indexOf(el) < -1
-    const char = (index + 13) < 25 ? Alphas[index+13] : Alphas.at(-(39 - index))
-    return char
+function rot13(message){
+  const Alphas = 'abcdefghijklmnopqrstuvwxyz'
+  return message.split('').map(el => {
+    if((Alphas.includes(el) || Alphas.includes(el.toLowerCase()))){
+      let index = Alphas.indexOf(el)
+      const upper = index > -1 ? false : true
+      index = Alphas.indexOf(el.toLowerCase())
+      const char = (index + 13) < 26 ? Alphas[index+13] : Alphas.at(-(39 - index))
+      return upper ? char.toLocaleUpperCase() : char
+    }
+    return el
   }).join('')
 }
-
-console.log(rot13('Test')) //grfg
