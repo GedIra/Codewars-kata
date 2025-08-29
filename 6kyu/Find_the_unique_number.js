@@ -1,7 +1,7 @@
-function findUniq(arr) {
-  const array = arr.reduce((acc, num) => acc.includes(num) ? [...acc, num] : [...acc], [arr[0]]).slice(1)
-  console.log(array)
-  return array.length > 1 ? arr.filter(num => ! array.includes(num))[0] : array[0]
-}
+/**
+ * Link: https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/javascript
+ */
 
-console.log(findUniq([ 0, 1, 1 ]))
+const findUniq = arr => {
+  return arr.filter(el => arr.indexOf(el) === arr.lastIndexOf(el))[0]
+}
